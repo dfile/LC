@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Lending Club Borrower Analysis</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="bootstrap/css/starter-template.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">LC Borrower Analysis</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Lending Club Borrower Analysis</h1>
+        <p class="lead"> <a href='http://www.lendingclub.com'>Lending Club</a> is an online marketplace that matches borrowers with lenders.<br> We analyze the demographic and financial information about borrowers<br>to predict credit worthiness and model the expected value of loans.</p>
+      </div>
+
+
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Borrower Grades <span class="text-muted">Generally Predictive</span></h2>
+          <p class="lead">Lending Club (LC) asks prospective borrowers to supply demographic and financial information (e.g. zip code and credit score). LC uses this information to give each borrower a grade. Prospective lenders can use this grade to infer the credit worthiness of the borrower.<br> The LC grade is generally predictive of the borrower's credit worthiness.'</p>
+        </div>
+        <div class="col-md-5">
+          <img src="default.png"class="featurette-image img-responsive center-block"  alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading">A Deeper Look <span class="text-muted">Mortgage versus Rent</span></h2>
+          <p class="lead">If we break down the borrowers according to whether they have a mortgage or rent their home , some differences among LC grade levels emerge.</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+          <img src="DefaultByRate.png" class="featurette-image img-responsive center-block"  alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Regularized Logit Model <span class="text-muted">60% Recall for Default/Delinquency </span></h2>
+          <p class="lead">I created a regularized logistic regression model to predict loans that would default or be delinquent. Upon cross-validation the model is 90% accurate, but the recall is only 33%.</p>
+          <p class='lead'> I also created an ensemble model, grouping by LC grade and fitting the model on each grade. The ensemble model has 72% recall and 60% accuracy (i.e. the model correctly identifies 72% of loans that defaulted or were delinquent). </p>
+          <p class='lead'>
+          Since very few borrowers reach delinquency or default, I over-sampled the default/delinquency group when fitting the model.</p>
+        </div>
+      </div>
+
+
+
+
+ <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading col-md-push-5">Rent or Mortgage 
+          <p class="lead"> The coefficients across LC grade Levels for borrowers who rent, and borrowers who have mortgages are displayed. </p>
+        </div>
+        <div class="col-md-5">
+          <img src="home_ownership_new.png"class="featurette-image img-responsive center-block"  alt="Home Ownership Coefficients">
+        </div>
+      </div>
+
+  <hr>
+      <div id="contact" class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Contact Information
+          <p class="lead">Daniel File <br>daniel.file@mg.thedataincubator.com</p>
+        </div>
+        
+      </div>
+
+
+
+
+
+<footer>
+	<p class="pull-right">
+		<a href="#">Back to top</a>
+	</p>
+	<p> © 2015 Daniel W. File</p>
+</footer>
+  
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
