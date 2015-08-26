@@ -63,29 +63,51 @@
       <hr class="featurette-divider">
 
       <div class="row featurette">
-        <div class="col-md-7">
+        <div class="col-md-5">
           <h2 class="featurette-heading">Borrower Grades <span class="text-muted">Generally Predictive</span></h2>
           <p class="lead">Lending Club (LC) asks prospective borrowers to supply demographic and financial information (e.g. zip code and credit score). LC uses this information to give each borrower a grade. Prospective lenders can use this grade to infer the credit worthiness of the borrower.<br> The LC grade is generally predictive of the borrower's credit worthiness.</p>
         </div>
-        <div class="col-md-5">
-          <img src="default.png"class="featurette-image img-responsive center-block"  alt="Generic placeholder image">
+        <div class="col-md-7">
+          <img src="grade.png"class="featurette-image img-responsive center-block"  alt="Generic placeholder image">
         </div>
       </div>
 
       <hr class="featurette-divider">
 
       <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
+        <div class="col-md-5 col-md-push-7">
           <h2 class="featurette-heading">A Deeper Look <span class="text-muted">Mortgage versus Rent</span></h2>
-          <p class="lead">If we break down the borrowers according to whether they have a mortgage or rent their home, some differences among LC grade levels emerge.</p>
+          <p class="lead">If we break down the borrowers according to whether they have a mortgage or rent their home, some differences among LC grade levels emerge. (Error bars indicate 95% confidence intervals.)</p>
         </div>
-        <div class="col-md-5 col-md-pull-7">
-          <img src="DefaultByRate.png" class="featurette-image img-responsive center-block"  alt="Generic placeholder image">
+        <div class="col-md-7 col-md-pull-5">
+          <img src="grade_ownership.png" class="featurette-image img-responsive center-block"  alt="Generic placeholder image">
         </div>
       </div>
 
       <hr class="featurette-divider">
+	  
+      <div class="row featurette">
+        <div class="col-md-5">
+          <h2 class="featurette-heading">LC Subgrades <span class="text-muted">The Phenomenon Persists</span></h2>
+          <p class="lead">We continue to see a difference between mortgage holders and renters when we break down the loans according to the Lending Club assigned subgrade. Here are the loans within the B grade.</p>
+        </div>
+        <div class="col-md-7">
+          <img src="subgrade_ownership.png"class="featurette-image img-responsive center-block"  alt="Generic placeholder image">
+        </div>
+      </div>
 
+      <hr class="featurette-divider">
+      <div class="row featurette">
+        <div class="col-md-4 col-md-push-8">
+          <h2 class="featurette-heading">Interest Rate <span class="text-muted">Mostly Determined by LC Grade</span></h2>
+          <p class="lead">The Interest Rate is determined in large part by the Lending Club Grade.</p>
+        </div>
+        <div class="col-md-8 col-md-pull-4">
+          <img src="interest_rate.png" class="featurette-image img-responsive center-block"  alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
 
       <div class="row featurette">
         <div class="col-md-7">
