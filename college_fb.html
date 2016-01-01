@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>College Football Prediction Model</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="bootstrap/css/starter-template.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Daniel File</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href='index.html'>LC Borrower Analysis</a></li>
+			<li class="active"><a href='#'>College Football Model</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+
+        <h1>College Football Bowl Game Model</h1>
+        <p class="lead">
+			I made model to predict the outcome of NCAA football bowl games. My model is based only on the outcome of regular season games, and is an ensemble of two simple mathematical models.
+		</p>
+      <div class="row">
+        <div class="col-md-6">
+		<h2>Random Walk Model</h2>
+		<p class="body">
+			The first is a random walk model (i.e. Google Page Rank). The idea of the random walk model is to imagine a network where each node (point) represents a team. There is a one-way path between two teams if they played a game, and the direction of the path points toward the winning team. Assume you are placed on a point at random and begin travelling along the paths randomly. A teams ranking is the probability that you are located at that teams node after a very long time. The idea of the Google Page Rank algorithm is that if you add a little more randomness -- a small probability of moving from any node to any other node, then this limiting probability is well determined.
+		</p>
+		<p class="body">
+			The graph in the random walk model edges weighted by the score differential. I tried applying various functions to the score differential as well as the score differential scaled by the winning team's score. One feature of the random walk model is that it rewards teams that beat other teams with few losses, even when that team had mediocre results through the season.
+		</p>
+		</div>
+		
+		
+        <div class="col-md-6">
+			<h2>Regression Model</h2>
+		<p class="body">
+			The second is a regression model where each game is an observation. The teams participating in the game are the features, and I arbitrarily assign one team to be team one and the other to be team two. The value of team one is +1 and the value of team two is -1 for each game. The difference in score (team one score less team two score) is the label. One advantage of the regression model is that it was very simple to do model selection using cross-validation. I used L2 regularization and determined the amount of regularization through cross-validation.
+		</p>
+		</div>
+      </div>
+	  
+<h2>
+	Results
+</h2>
+
+<div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Team 1</th>
+                  <th>Team 2</th>
+				  <th>Model Prediction</th>
+                </tr>
+              </thead>
+              <tbody>
+				<tr> 
+				 <td>Virginia Tech 55</td> 
+				 <td> Tulsa 52</td> 
+				 <td>Virginia Tech</td> 
+				</tr> 
+
+				<tr> 
+				 <td>Nebraska 37</td> 
+				 <td> UCLA 29</td> 
+				 <td>Nebraska</td> 
+				</tr> 
+
+				<tr> 
+				 <td>(21) Navy 44</td> 
+				 <td> Pittsburgh 28</td> 
+				 <td>Navy</td> 
+				</tr> 
+
+				<tr> 
+				 <td>Minnesota 21</td> 
+				 <td> Central Michigan 14</td> 
+				 <td>Central Michigan</td> 
+				</tr> 
+
+				<tr> 
+				 <td>California 55</td> 
+				 <td> Air Force 36</td> 
+				 <td>California</td> 
+				</tr> 
+
+				<tr> 
+				 <td>(17) Baylor 49</td> 
+				 <td> (10) North Carolina 38</td> 
+				 <td>North Carolina</td> 
+				</tr> 
+
+				<tr> 
+				 <td>Nevada 28</td> 
+				 <td> Colorado State 23</td> 
+				 <td>Colorado State</td> 
+				</tr> 
+
+				<tr> 
+				 <td>(20) LSU 56</td> 
+				 <td> Texas Tech 27</td> 
+				 <td>LSU</td> 
+				</tr> 
+
+				<tr> 
+				 <td>Auburn 31</td> 
+				 <td> Memphis 10</td> 
+				 <td>Memphis</td> 
+				</tr> 
+
+				<tr> 
+				 <td>Mississippi State 51</td> 
+				 <td> NC State 28</td> 
+				 <td>Mississippi State</td> 
+				</tr> 
+
+				<tr> 
+				 <td>Louisville 27</td> 
+				 <td> Texas A&M 21</td> 
+				 <td>Texas A&M</td> 
+				</tr> 
+
+				<tr> 
+				 <td>Wisconsin 23</td> 
+				 <td> (25) USC 21</td> 
+				 <td>USC</td> 
+				</tr> 
+
+				<tr> 
+				 <td>(18) Houston 38</td> 
+				 <td> (9) Florida State 24</td> 
+				 <td>Florida State</td> 
+				</tr> 
+
+				<tr> 
+				 <td>(1) Clemson 37</td> 
+				 <td> (4) Oklahoma 17</td> 
+				 <td>Clemson</td> 
+				</tr> 
+
+				<tr> 
+				 <td>(2) Alabama 38</td> 
+				 <td> (3) Michigan State 0</td> 
+				 <td>Michigan</td> 
+				</tr>
+			</tbody>
+			</table>
+		</div>
+
+
+
+
+    </div>
+
+
+
+<footer>
+	<p class="pull-right">
+		<a href="#">Back to top</a>
+	</p>
+	<p> © 2015 Daniel W. File</p>
+</footer>
+  
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
